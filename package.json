@@ -60,6 +60,7 @@
     "singleQuote": true
   },
   "unbuild": {
+    "sourcemap": true,
     "declaration": "node16"
   }
 }
