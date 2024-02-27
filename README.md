@@ -63,7 +63,10 @@ module.exports = {
 
 ## Options
 
-### `viewportWidths` (default: `{}`)
+### `viewportWidths`
+
+Type: `{ [key: string]: string }`  
+Default: `{}`
 
 Defines the viewport-widths that can be referenced from `from-viewport-width` and `to-viewport-width` via those keys.
 
@@ -105,9 +108,14 @@ h1 {
 }
 ```
 
-### `useLogicalUnits` (default: `false`)
+### `useLogicalUnits`
+
+Type: `Boolean`  
+Default: `false`
 
 Allows you to use `vi` units instead of `vw` units for the output.
+
+Example:
 
 ```css
 h1 {
@@ -123,10 +131,16 @@ h1 {
 }
 ```
 
-### `rootFontSize` (default: `16`)
+### `rootFontSize`
+
+Type: `Number`  
+Default: `16`
 
 Allows you to set the `font-size` of the root used in the calculations for `rem` units.
 
-### `precision` (default: `5`)
+### `precision`
+
+Type: `Number`  
+Default: `5`
 
 Allows you to control the number of decimal places in the output numbers.
