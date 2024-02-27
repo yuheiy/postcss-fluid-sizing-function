@@ -3,7 +3,7 @@
   --prop-001: clamp(32px, 4vw + 6.4px, 64px);
   --prop-002: clamp(32px, -4vw + 89.6px, 64px);
   --prop-003: clamp(-32px, 12vw - 108.8px, 64px);
-  --prop-004: clamp(32px, -4vw + 89.6px, 64px);
+  --prop-004: clamp(32px, 4vw + 6.4px, 64px);
   --prop-005: 32px;
   --prop-006: 32px;
   --prop-007: clamp(32px, 4vw + 6.4px, 64px);
@@ -18,7 +18,7 @@
   --prop-012: clamp(32px, 4vw + 6.4px, 64px) clamp(32px, 4vw + 6.4px, 64px),
     clamp(32px, 4vw + 6.4px, 64px);
 
-  /* 'screens' option */
+  /* 'viewportWidths' option */
   --prop-013: clamp(32px, 4vw + 6.4px, 64px);
   --prop-014: clamp(32px, 4vw + 6.4px, 64px);
 }
