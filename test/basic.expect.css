@@ -1,0 +1,38 @@
+.computed {
+  /* Identify tests */
+  --prop-001: clamp(32px, 4vw + 6.4px, 64px);
+  --prop-002: clamp(32px, -4vw + 89.6px, 64px);
+  --prop-003: clamp(-32px, 12vw - 108.8px, 64px);
+  --prop-004: clamp(32px, -4vw + 89.6px, 64px);
+  --prop-005: 32px;
+  --prop-006: 32px;
+  --prop-007: clamp(32px, 4vw + 6.4px, 64px);
+  --prop-008: clamp(2rem, 4vw + 0.4rem, 4rem);
+  --prop-009: clamp(2rem, 4vw + 0.4rem, 4rem);
+  --prop-010: clamp(24px, 3.125vw, 32px);
+
+  /* Nesting */
+  --prop-011: calc(clamp(32px, 4vw + 6.4px, 64px) * -1);
+
+  /* Separated list */
+  --prop-012: clamp(32px, 4vw + 6.4px, 64px) clamp(32px, 4vw + 6.4px, 64px),
+    clamp(32px, 4vw + 6.4px, 64px);
+
+  /* 'screens' option */
+  --prop-013: clamp(32px, 4vw + 6.4px, 64px);
+  --prop-014: clamp(32px, 4vw + 6.4px, 64px);
+}
+
+.invalid {
+  /* Syntax checking */
+  --prop-001: fluid-sizing();
+  --prop-002: fluid-sizing(640px calc(16px * 2), 1440px 64px);
+  --prop-003: fluid-sizing(640px [32px], 1440px 64px);
+
+  /* General tests */
+  --prop-004: fluid-sizing(640px 32px, 1024px 48px, 1440px 64px);
+  --prop-005: fluid-sizing(-640px 32px, 1440px 64px);
+  --prop-006: fluid-sizing(640px 32px, 90rem 64px);
+  --prop-007: fluid-sizing(640px 32px, 1440px 4rem);
+  --prop-008: fluid-sizing(640px 32px, 640px 64px);
+}

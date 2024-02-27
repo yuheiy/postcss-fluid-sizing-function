@@ -1,0 +1,64 @@
+{
+  "name": "postcss-fluid-sizing-function",
+  "version": "0.0.0",
+  "description": "PostCSS plugin to transform fluid-sizing() to an expression using clamp(), known as fluid typography.",
+  "keywords": [
+    "postcss-plugin"
+  ],
+  "homepage": "https://github.com/yuheiy/postcss-fluid-sizing-function",
+  "bugs": {
+    "url": "https://github.com/yuheiy/postcss-fluid-sizing-function/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuheiy/postcss-fluid-sizing-function.git"
+  },
+  "license": "MIT",
+  "author": "Yuhei Yasuda <yuhei.yasuda1003@gmail.com> (https://yuheiy.com/)",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.cjs",
+  "files": [
+    "dist/",
+    "src/"
+  ],
+  "scripts": {
+    "build": "tsc --noEmit && unbuild",
+    "format": "prettier . --write",
+    "prepare": "npm run build",
+    "pretest": "npm run build",
+    "test": "node --test",
+    "test:rewrite-expects": "REWRITE_EXPECTS=true npm run test"
+  },
+  "dependencies": {
+    "@csstools/css-parser-algorithms": "^2.6.0",
+    "@csstools/css-tokenizer": "^2.2.3"
+  },
+  "devDependencies": {
+    "@csstools/postcss-tape": "^4.1.2",
+    "@types/node": "^20.11.20",
+    "prettier": "^3.2.5",
+    "typescript": "^5.3.3",
+    "unbuild": "^2.0.0"
+  },
+  "peerDependencies": {
+    "postcss": "^8.4"
+  },
+  "packageManager": "npm@10.4.0",
+  "engines": {
+    "node": "^16 || >=18"
+  },
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true
+  },
+  "unbuild": {
+    "declaration": "node16"
+  }
+}

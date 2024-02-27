@@ -1,0 +1,6 @@
+.computed {
+  --prop-001: fluid-sizing(640px 32px, 1440px 64px);
+  --prop-002: fluid-sizing(640px 2rem, 1440px 4rem);
+  --prop-003: fluid-sizing(64rem 32px, 144rem 64px);
+  --prop-004: fluid-sizing(64rem 2rem, 144rem 4rem);
+}

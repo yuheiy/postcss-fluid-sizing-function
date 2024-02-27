@@ -1,0 +1,6 @@
+.computed {
+  --prop-001: clamp(32px, 4vw + 6.4px, 64px);
+  --prop-002: clamp(2rem, 2.5vw + 0.4rem, 4rem);
+  --prop-003: clamp(32px, 4vw + 6.4px, 64px);
+  --prop-004: clamp(2rem, 2.5vw + 0.4rem, 4rem);
+}
