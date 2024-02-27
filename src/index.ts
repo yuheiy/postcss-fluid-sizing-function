@@ -22,38 +22,37 @@ export type pluginOptions = {
    * Defines the viewport-widths that can be referenced from `from-viewport-width` and
    * `to-viewport-width` via those keys.
    */
-  viewportWidths?: {
-    [key: string]: string;
-    DEFAULT_FROM?: string;
-    DEFAULT_TO?: string;
-  };
+  viewportWidths?:
+    | {
+        [key: string]: string | undefined;
+        DEFAULT_FROM?: string | undefined;
+        DEFAULT_TO?: string | undefined;
+      }
+    | undefined;
 
   /**
    * Allows you to use `vi` units instead of `vw` units for the output.
    */
-  useLogicalUnits?: boolean;
+  useLogicalUnits?: boolean | undefined;
 
   /**
    * Allows you to set the `font-size` of the root used in the calculation for `rem` units.
    */
-  rootFontSize?: number;
+  rootFontSize?: number | undefined;
 
   /**
    * Allows you to control the number of decimal places in the output numbers.
    */
-  precision?: number;
+  precision?: number | undefined;
 };
 
 /** Transform fluid-sizing() functions in CSS. */
 const creator: PluginCreator<pluginOptions> = (options_?: pluginOptions) => {
   const options = {
-    // Default options
-    viewportWidths: {},
-    useLogicalUnits: false,
-    rootFontSize: 16,
-    precision: 5,
-    // Provided options
-    ...options_,
+    viewportWidths: options_?.viewportWidths ?? {},
+    useLogicalUnits: options_?.useLogicalUnits ?? false,
+    rootFontSize: options_?.rootFontSize ?? 16,
+    precision: options_?.precision ?? 5,
   } satisfies pluginOptions;
 
   function fluidSizing(fluidSizingNode: FunctionNode): ComponentValue | void {
