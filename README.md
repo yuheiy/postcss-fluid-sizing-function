@@ -1,14 +1,14 @@
 # postcss-fluid-sizing-function
 
-[PostCSS](https://github.com/postcss/postcss) plugin to transform `fluid-sizing()` to an expression using `clamp()`, known as [fluid typography](https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/).
+[PostCSS](https://github.com/postcss/postcss) plugin to transform `fluid()` to an expression using `clamp()`, known as [fluid typography](https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/).
 
 ```css
 h1 {
-  font-size: fluid-sizing(640px 2rem, 1440px 4rem);
+  font-size: fluid(640px 2rem, 1440px 4rem);
 }
 
 .container {
-  padding: fluid-sizing(640px 24px, 1440px 48px) fluid-sizing(640px 32px, 1440px 64px);
+  padding: fluid(640px 24px, 1440px 48px) fluid(640px 32px, 1440px 64px);
 }
 ```
 
@@ -26,7 +26,7 @@ h1 {
 
 Checkout [tests](test/basic.css) for more examples.
 
-The `fluid-sizing(from-viewport-width from-size, to-viewport-width to-size)` function accepts four dimensions as two comma-separated pairs as its parameters.
+The `fluid(from-viewport-width from-size, to-viewport-width to-size)` function accepts four dimensions as two comma-separated pairs as its parameters.
 
 - `from-viewport-width`: The starting viewport-width.
 - `from-size`: The starting size. For narrower viewport-widths than `from-viewport-width`, the starting size is used.
@@ -83,8 +83,8 @@ Example:
 
 ```css
 h1 {
-  font-size: fluid-sizing(sm 2rem, lg 4rem);
-  /* same as fluid-sizing(640px 2rem, 1440px 4rem) */
+  font-size: fluid(sm 2rem, lg 4rem);
+  /* same as fluid(640px 2rem, 1440px 4rem) */
 }
 ```
 
@@ -103,8 +103,8 @@ Example:
 
 ```css
 h1 {
-  font-size: fluid-sizing(2rem, 4rem);
-  /* same as fluid-sizing(640px 2rem, 1440px 4rem) */
+  font-size: fluid(2rem, 4rem);
+  /* same as fluid(640px 2rem, 1440px 4rem) */
 }
 ```
 
@@ -119,7 +119,7 @@ Example:
 
 ```css
 h1 {
-  font-size: fluid-sizing(640px 2rem, 1440px 4rem);
+  font-size: fluid(640px 2rem, 1440px 4rem);
 }
 ```
 

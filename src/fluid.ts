@@ -13,7 +13,7 @@ function toPrecision(n: number, precision: number): number {
   return Number(n.toFixed(precision));
 }
 
-export function solveFluidSizing(
+export function solveFluid(
   fromViewportWidth: TokenNode,
   fromSize: TokenNode,
   toViewportWidth: TokenNode,

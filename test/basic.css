@@ -1,38 +1,38 @@
 .computed {
   /* Identify tests */
-  --prop-001: fluid-sizing(640px 32px, 1440px 64px);
-  --prop-002: fluid-sizing(640px 64px, 1440px 32px);
-  --prop-003: fluid-sizing(640px -32px, 1440px 64px);
-  --prop-004: fluid-sizing(1440px 64px, 640px 32px);
-  --prop-005: fluid-sizing(640px 32px, 640px 32px);
-  --prop-006: fluid-sizing(640px 32px, 1440px 32px);
-  --prop-007: fluid-sizing(40rem 32px, 90rem 64px);
-  --prop-008: fluid-sizing(640px 2rem, 1440px 4rem);
-  --prop-009: fluid-sizing(40rem 2rem, 90rem 4rem);
-  --prop-010: fluid-sizing(768px 24px, 1024px 32px);
+  --prop-001: fluid(640px 32px, 1440px 64px);
+  --prop-002: fluid(640px 64px, 1440px 32px);
+  --prop-003: fluid(640px -32px, 1440px 64px);
+  --prop-004: fluid(1440px 64px, 640px 32px);
+  --prop-005: fluid(640px 32px, 640px 32px);
+  --prop-006: fluid(640px 32px, 1440px 32px);
+  --prop-007: fluid(40rem 32px, 90rem 64px);
+  --prop-008: fluid(640px 2rem, 1440px 4rem);
+  --prop-009: fluid(40rem 2rem, 90rem 4rem);
+  --prop-010: fluid(768px 24px, 1024px 32px);
 
   /* Nesting */
-  --prop-011: calc(fluid-sizing(640px 32px, 1440px 64px) * -1);
+  --prop-011: calc(fluid(640px 32px, 1440px 64px) * -1);
 
   /* Separated list */
-  --prop-012: fluid-sizing(640px 32px, 1440px 64px) fluid-sizing(640px 32px, 1440px 64px),
-    fluid-sizing(640px 32px, 1440px 64px);
+  --prop-012: fluid(640px 32px, 1440px 64px) fluid(640px 32px, 1440px 64px),
+    fluid(640px 32px, 1440px 64px);
 
   /* 'viewportWidths' option */
-  --prop-013: fluid-sizing(sm 32px, 2xl 64px);
-  --prop-014: fluid-sizing(32px, 64px);
+  --prop-013: fluid(sm 32px, 2xl 64px);
+  --prop-014: fluid(32px, 64px);
 }
 
 .invalid {
   /* Syntax checking */
-  --prop-001: fluid-sizing();
-  --prop-002: fluid-sizing(640px calc(16px * 2), 1440px 64px);
-  --prop-003: fluid-sizing(640px [32px], 1440px 64px);
+  --prop-001: fluid();
+  --prop-002: fluid(640px calc(16px * 2), 1440px 64px);
+  --prop-003: fluid(640px [32px], 1440px 64px);
 
   /* General tests */
-  --prop-004: fluid-sizing(640px 32px, 1024px 48px, 1440px 64px);
-  --prop-005: fluid-sizing(-640px 32px, 1440px 64px);
-  --prop-006: fluid-sizing(640px 32px, 90rem 64px);
-  --prop-007: fluid-sizing(640px 32px, 1440px 4rem);
-  --prop-008: fluid-sizing(640px 32px, 640px 64px);
+  --prop-004: fluid(640px 32px, 1024px 48px, 1440px 64px);
+  --prop-005: fluid(-640px 32px, 1440px 64px);
+  --prop-006: fluid(640px 32px, 90rem 64px);
+  --prop-007: fluid(640px 32px, 1440px 4rem);
+  --prop-008: fluid(640px 32px, 640px 64px);
 }

@@ -11,10 +11,10 @@ import {
 } from '@csstools/css-parser-algorithms';
 import { stringify, tokenize } from '@csstools/css-tokenizer';
 import type { PluginCreator } from 'postcss';
-import { solveFluidSizing } from './fluid-sizing.js';
+import { solveFluid } from './fluid.js';
 
-const FLUID_SIZING_FUNCTION_REGEX = /\bfluid-sizing\(/i;
-const FLUID_SIZING_NAME_REGEX = /^fluid-sizing$/i;
+const FLUID_FUNCTION_REGEX = /\bfluid\(/i;
+const FLUID_NAME_REGEX = /^fluid$/i;
 
 /** postcss-fluid-sizing-function plugin options */
 export type pluginOptions = {
@@ -46,7 +46,7 @@ export type pluginOptions = {
   precision?: number | undefined;
 };
 
-/** Transform fluid-sizing() functions in CSS. */
+/** Transform fluid() functions in CSS. */
 const creator: PluginCreator<pluginOptions> = (options_?: pluginOptions) => {
   const options = {
     viewportWidths: options_?.viewportWidths ?? {},
@@ -55,10 +55,10 @@ const creator: PluginCreator<pluginOptions> = (options_?: pluginOptions) => {
     precision: options_?.precision ?? 5,
   } satisfies pluginOptions;
 
-  function fluidSizing(fluidSizingNode: FunctionNode): ComponentValue | void {
+  function fluid(fluidNode: FunctionNode): ComponentValue | void {
     const relevantNodes: TokenNode[] = [];
 
-    for (const node of fluidSizingNode.value) {
+    for (const node of fluidNode.value) {
       if (isFunctionNode(node) || isSimpleBlockNode(node)) {
         return;
       }
@@ -140,7 +140,7 @@ const creator: PluginCreator<pluginOptions> = (options_?: pluginOptions) => {
       result.push(viewportWidthNode, sizeNode);
     }
 
-    return solveFluidSizing(fromNodes[0]!, fromNodes[1]!, toNodes[0]!, toNodes[1]!, {
+    return solveFluid(fromNodes[0]!, fromNodes[1]!, toNodes[0]!, toNodes[1]!, {
       useLogicalUnits: options.useLogicalUnits,
       rootFontSize: options.rootFontSize,
       precision: options.precision,
@@ -151,21 +151,18 @@ const creator: PluginCreator<pluginOptions> = (options_?: pluginOptions) => {
     postcssPlugin: 'postcss-fluid-sizing-function',
     Declaration(decl) {
       const originalValue = decl.value;
-      if (!FLUID_SIZING_FUNCTION_REGEX.test(originalValue)) {
+      if (!FLUID_FUNCTION_REGEX.test(originalValue)) {
         return;
       }
 
       const modifiedValue = replaceComponentValues(
         parseCommaSeparatedListOfComponentValues(tokenize({ css: originalValue })),
         (componentValue) => {
-          if (
-            !isFunctionNode(componentValue) ||
-            !FLUID_SIZING_NAME_REGEX.test(componentValue.getName())
-          ) {
+          if (!isFunctionNode(componentValue) || !FLUID_NAME_REGEX.test(componentValue.getName())) {
             return;
           }
 
-          return fluidSizing(componentValue);
+          return fluid(componentValue);
         },
       )
         .map((componentValues) => componentValues.map((x) => stringify(...x.tokens())).join(''))

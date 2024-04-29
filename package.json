@@ -1,7 +1,7 @@
 {
   "name": "postcss-fluid-sizing-function",
   "version": "0.0.1",
-  "description": "PostCSS plugin to transform fluid-sizing() to an expression using clamp(), known as fluid typography.",
+  "description": "PostCSS plugin to transform fluid() to an expression using clamp(), known as fluid typography.",
   "keywords": [
     "postcss-plugin"
   ],
