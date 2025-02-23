@@ -48,6 +48,11 @@ export type pluginOptions = {
 
 /** Transform fluid() functions in CSS. */
 const creator: PluginCreator<pluginOptions> = (options_?: pluginOptions) => {
+  console.warn(
+    '\x1b[33m%s\x1b[0m',
+    '[postcss] postcss-fluid-sizing-function is no longer recommended. Instead, we suggest implementing Fluid Typography using @yuheiy/postcss-custom-functions as described in the recipes section:\nhttps://github.com/yuheiy/postcss-custom-functions?tab=readme-ov-file#fluid-typography',
+  );
+
   const options = {
     viewportWidths: options_?.viewportWidths ?? {},
     useLogicalUnits: options_?.useLogicalUnits ?? false,

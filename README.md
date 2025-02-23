@@ -1,5 +1,8 @@
 # postcss-fluid-sizing-function
 
+> [!CAUTION]
+> postcss-fluid-sizing-function is no longer recommended. Instead, we suggest implementing Fluid Typography using [@yuheiy/postcss-custom-functions](https://github.com/yuheiy/postcss-custom-functions) as [described in the recipes section](https://github.com/yuheiy/postcss-custom-functions?tab=readme-ov-file#fluid-typography).
+
 [PostCSS](https://github.com/postcss/postcss) plugin to transform `fluid()` to an expression using `clamp()`, known as [fluid typography](https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/).
 
 ```css
